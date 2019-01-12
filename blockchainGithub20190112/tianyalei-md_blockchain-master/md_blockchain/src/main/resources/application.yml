@@ -15,4 +15,4 @@ appId: ${APP_ID:wolf}
 managerUrl: ${MANAGER_URL:http://localhost:8888/}
 publicKey: A8WLqHTjcT/FQ2IWhIePNShUEcdCzu5dG+XrQU8OMu54
 privateKey: yScdp6fNgUU+cRUTygvJG4EBhDKmOMRrK4XJ9mKVQJ8=
-singeNode: true  #单节点测试模式测试-再次提交
+singeNode: true  #单节点测试模式测试-再次提交-
