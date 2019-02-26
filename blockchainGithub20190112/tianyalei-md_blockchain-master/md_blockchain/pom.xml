@@ -25,6 +25,9 @@
 		<fastjson.version>1.2.29</fastjson.version>
 		<swagger.version>2.7.0</swagger.version>
 		<swagger.bootstrap.version>1.7</swagger.bootstrap.version>
+        <!--以下两项需要如果不配置，解析themleaft 会有问题-->
+        <thymeleaf-layout-dialect.version>1.4.0</thymeleaf-layout-dialect.version>
+        <thymeleaf.version>2.1.6.RELEASE</thymeleaf.version>
 	</properties>
 
 	<repositories>
@@ -41,10 +44,22 @@
 	</repositories>
 
 	<dependencies>
+        <!-- thymeleaf 模板依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.22</version>
+        </dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
+        <!-- web 依赖-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -145,15 +160,47 @@
 			<artifactId>swagger-bootstrap-ui</artifactId>
 			<version>${swagger.bootstrap.version}</version>
 		</dependency>
+
+        <!-- thymeleaf 模板-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>nz.net.ultraq.thymeleaf</groupId>
+            <artifactId>thymeleaf-layout-dialect</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.22</version>
+        </dependency>
+
+        <!--热部署-->
+        <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <optional>true</optional>
+        </dependency>
+
+
+
+
 	</dependencies>
 
+    <!--project 中添加spring-boot-maven-plugin,主要在eclipse中起作用，idea不需要加此配置,springboot 项目的话，应该是有此配置，加里面的内容即可。-->
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
 			</plugin>
-		</plugins>
+
+
+        </plugins>
 	</build>
 
 
